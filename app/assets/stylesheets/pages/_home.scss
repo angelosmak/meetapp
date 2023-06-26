@@ -51,6 +51,17 @@ h4 {
     -webkit-transform: translateY(0%);
   }
 }
+
+@media screen and (max-width: 992px) {
+
+  .centered {
+    margin-right: 110px;
+    margin-left: 110px;
+  }
+  .vl {
+    height:50px;
+  }
+}
 @media screen and (max-width: 768px) {
   .col-sm-4 {
     text-align: center;
@@ -60,10 +71,16 @@ h4 {
     width: 100%;
     margin-bottom: 35px;
   }
+  .centered {
+    margin-right: 110px;
+    margin-left: 110px;
+  }
+
 }
 @media screen and (max-width: 480px) {
-  .logo {
-    font-size: 150px;
+  .centered {
+    margin-left: 50px;
+    margin-right: 50px;
   }
 }
 
@@ -88,5 +105,18 @@ h4 {
 }
 
 .input-group {
-  padding: 10px;
+  padding-top: 1rem ;
+}
+
+
+.vl {
+  border-left: 1px solid black;
+}
+
+.bg-lg{
+  background-color: $yellow;
+}
+
+.hover:hover{
+  opacity: 0.7;
 }
