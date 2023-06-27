@@ -29,21 +29,19 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by_id(params[:id])
-    @events = @event.events
-    @reviews = @event.reviews
+    @ratings = @event.ratings
+    @attendances = @event.attendances
     # pundit
-    authorize @event
   end
 
   def new
     @event = Event.new
     # pundit
-    authorize @event
   end
 
   def create
     @event = Event.new(event_params)
-    authorize @event
+    @event.user = current_user
     if @event.save
       redirect_to event_path(@event)
     else

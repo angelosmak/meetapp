@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :attendances, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  :recoverable, :rememberable, :validatable
 
   after_create :generate_profile
 

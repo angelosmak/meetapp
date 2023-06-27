@@ -1,24 +1,30 @@
 
-<div class="container d-flex justify-content-between">
-
-<div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">About</a>
-  <a href="#">Services</a>
-  <a href="#">Clients</a>
-  <a href="#">Contact</a>
-</div>
-<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-
+<div class="container navbar-top">
+<%# Side navbar hidden Panel %>
+  <% if user_signed_in? %>
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <%= link_to "Profile", edit_profile_path(current_user.profile.id) %>
+      <a href="#">Services</a>
+      <a href="#">Clients</a>
+      <a href="#">Contact</a>
+    </div>
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  <% end %>
+    <%# Search Bar horizontal %>
   <%= form_tag events_path, method: :get do %>
-    <div class="search-form-control d-flex pt-3">
+    <div class="search-form-control d-flex pt-2">
       <%= text_field_tag :search_query, params[:search_query], placeholder: "Discover Events", class: "secondary-text form-control" %>
       <%= submit_tag 'Discover', class: "btn navbar-text" %>
     </div>
   <% end %>
+
+  <%= link_to new_event_path, class:"text-decoration-none" do%>
+    <h3 id="plus-sign"><i class="fa-solid fa-plus"></i></h3>
+  <% end %>
 </div>
 <hr>
-
+<%# Categories %>
 <div class="centered">
     <div class="categories d-flex justify-content-between">
       <div class="vl">
@@ -58,7 +64,7 @@
 <hr>
 
 
-
+<%# Javascript for Side navbar %>
 <script>
 function openNav() {
   document.getElementById("mySidenav").style.width = "250px";

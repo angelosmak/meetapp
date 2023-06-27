@@ -2,7 +2,7 @@
 <% if @profile.photo.key %>
   <%= cl_image_tag @profile.photo.key, class:"shadow my-5" ,height: 100, width: 100, crop: :fill %>
   <% else %>
-    <%= image_tag "default-photo.webp", class:"avatar" %>
+    <%= image_tag "children.png", class:"avatar" %>
   <% end %>
   <h2>Username: <%= @profile.username %></h2>
   <p>Email: <%= @user.email %></p>

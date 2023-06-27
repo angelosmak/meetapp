@@ -42,4 +42,15 @@
   height:20px;
 }
 
+.navbar-top{
+  display:flex;
+  justify-content:space-between;
+  align-items: center;
+}
 
+#plus-sign{
+  border-bottom: black;
+  margin-top: 0;
+  margin-bottom: 0;
+
+}

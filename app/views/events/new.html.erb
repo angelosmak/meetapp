@@ -1,0 +1,13 @@
+<div class="container">
+  <%= simple_form_for(@event) do |f| %>
+    <%= f.input :title %>
+    <%= f.input :photo, as: :file %>
+    <%= f.input :description %>
+    <%= f.input :datetime %>
+    <%= f.input :max_attend %>
+    <%= f.input :price_per %>
+    <%= f.input :category, collection: ['sport', 'music', 'food', 'movies', 'outdoor'], as: :check_boxes %>
+    <%= f.input :address %>
+    <%= f.submit %>
+  <% end %>
+</div>
