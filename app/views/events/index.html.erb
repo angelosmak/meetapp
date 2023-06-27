@@ -1,30 +1,46 @@
 <p style="color: green"><%= notice %></p>
 
 
-  <div class="card-holder text-center">
-    <%# Display of each Beach instance in a card with a photo and a title and address underneath %>
-    <div class="row justify-content-center">
-      <% if @events.present? %>
-        <h1 class="navbar-text">Events and meetups near you</h1>
-        <div class="main-container">
-          <div class="map-container">
-            <div style="width: 100%; height: 500px;"
-              data-controller="map"
-              data-map-markers-value="<%= @markers.to_json %>"
-              data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-            </div>
-          </div>
-        </div>
+<%# Display of each Beach instance in a card with a photo and a title and address underneath %>
+<% if @events.present? %>
+  <div class="main-container">
+    <div class="map-container">
+      <div style="width: 100%; height: 500px;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
+  </div>
+  <section class="light">
+      <div class="h1 text-center text-dark" id="pageHeaderTitle">Events and meetups near you</div>
         <% @events.each do |event| %>
-          <div class="col-lg-3 col-md-6 col-sm-8 card text-center m-3">
+          <article class="postcard light blue">
+            <a class="postcard__img_link" href="/events/<%= event.id %>">
             <% if event.photo.key %>
-              <%= cl_image_tag event.photo.key, class: 'event-image' %>
+              <%= cl_image_tag event.photo.key, class: 'postcard__img', style:"height:320px;"%>
             <% else %>
-              <%= image_tag "meetapp.png",class:"event-image" %>
-            <% end %>
-            <h2><%= event.title %></h2>
-            <h3 id="shadowed" class="card-text secondary-text"><%= event.address %></h3>
-          </div>
+              <%= image_tag "meetapp.png",class:"postcard__img", style:"height:320px;" %>
+            <% end %></a>
+
+            <div class="postcard__text t-dark">
+              <h1 class="postcard__title blue"><a href="#"><%= event.title %></a></h1>
+              <div class="postcard__subtitle small">
+                <time datetime="2020-05-25 12:00:00">
+                  <i class="fas fa-calendar-alt mr-2"></i><%= event.datetime.strftime("%a, %b %e%t %Y") %>
+                </time>
+                <p><%= event.address %></p>
+                </div>
+                <div class="postcard__bar"></div>
+                  <div class="postcard__preview-txt"><%= event.description %></div>
+                    <ul class="postcard__tagbox">
+                      <li class="tag__item"><i class="fas fa-tag mr-2"></i>Attend</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
         <% end %>
       <% else %>
         <h2>Hmmm...</h2>
@@ -34,4 +50,5 @@
         </div>
       <% end %>
     </div>
-  </div>
+  </section>
+</div>
