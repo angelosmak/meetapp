@@ -1,26 +1,37 @@
 <p style="color: green"><%= notice %></p>
 
-  <h1 class="navbar-text">Events and meetups near you</h1>
-<div class="main-container">
-  <div class="map-container">
-    <div style="width: 100%; height: 600px;"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-  </div>
-</div>
 
   <div class="card-holder text-center">
     <%# Display of each Beach instance in a card with a photo and a title and address underneath %>
     <div class="row justify-content-center">
       <% if @events.present? %>
+        <h1 class="navbar-text">Events and meetups near you</h1>
+        <div class="main-container">
+          <div class="map-container">
+            <div style="width: 100%; height: 500px;"
+              data-controller="map"
+              data-map-markers-value="<%= @markers.to_json %>"
+              data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+            </div>
+          </div>
+        </div>
         <% @events.each do |event| %>
           <div class="col-lg-3 col-md-6 col-sm-8 card text-center m-3">
+            <% if event.photo.key %>
+              <%= cl_image_tag event.photo.key, class: 'event-image' %>
+            <% else %>
+              <%= image_tag "meetapp.png",class:"event-image" %>
+            <% end %>
             <h2><%= event.title %></h2>
             <h3 id="shadowed" class="card-text secondary-text"><%= event.address %></h3>
           </div>
         <% end %>
+      <% else %>
+        <h2>Hmmm...</h2>
+        <p>Seems like there are no events in your area 😔</p>
+        <div>
+          <%= link_to "Create an Event!", new_event_path, class:"btn btn-primary"%>
+        </div>
       <% end %>
     </div>
   </div>
