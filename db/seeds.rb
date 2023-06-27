@@ -1,44 +1,5 @@
 Event.destroy_all
-User.destroy_all
 
-user = User.create!(
-  email: "userda@example.com",
-  password: "encrypted_password",
-  encrypted_password: "encrypted_password",
-  reset_password_token: nil,
-  reset_password_sent_at: nil,
-  remember_created_at: nil
-)
-# You can add more user seeds as needed
-User.create!(
-  email: "another_usedar@example.com",
-  password: "another_encrypted_password",
-  encrypted_password: "another_encrypted_password",
-  reset_password_token: nil,
-  reset_password_sent_at: nil,
-  remember_created_at: nil
-)
-
-# Assume you have a model called User for this table
-
-User.create!(
-  email: "user3da@example.com",
-  password: "encrypted_password",
-  encrypted_password: "encrypted_password",
-  reset_password_token: nil,
-  reset_password_sent_at: nil,
-  remember_created_at: nil
-)
-
-# You can add more user seeds as needed
-User.create!(
-  email: "another_usader31@example.com",
-  password: "another_encrypted_password",
-  encrypted_password: "another_encrypted_password",
-  reset_password_token: nil,
-  reset_password_sent_at: nil,
-  remember_created_at: nil
-)
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -56,7 +17,7 @@ Event.create!(
   max_attend: 50,
   category: ["sport"],
   price_per: 10,
-  user_id: user,
+  user_id: User.all.sample.id,
   address: "1600 Pennsylvania Avenue NW, Washington, D.C., United States
   "
 )
@@ -69,7 +30,7 @@ Event.create!(
   max_attend: 100,
   category: ["music"],
   price_per: 25,
-  user_id: user,
+  user_id: User.all.sample.id,
   address: "221B Baker Street, London, United Kingdom
   "
 )
@@ -82,7 +43,7 @@ Event.create!(
   max_attend: 200,
   category: ["food"],
   price_per: 0,
-  user_id: user,
+  user_id: User.all.sample.id,
   address: "10 Downing Street, London, United Kingdom
   "
 )
@@ -95,7 +56,7 @@ Event.create!(
   max_attend: 50,
   category: ["movies"],
   price_per: 5,
-  user_id: user,
+  user_id: User.all.sample.id,
   address: "1 Infinite Loop, Cupertino, California, United States
   "
 )
@@ -108,7 +69,7 @@ Event.create!(
   max_attend: 20,
   category: ["outdoor"],
   price_per: 0,
-  user_id: user,
+  user_id: User.all.sample.id,
   address: "1 Circular Quay East, Sydney, New South Wales, Australia
 
   "
@@ -122,7 +83,7 @@ Event.create!(
   max_attend: 100,
   category: ["sport"],
   price_per: 15,
-  user_id: user,
+  user_id: User.all.sample.id,
   address: "5 Avenue Anatole France, 75007 Paris, France
 
   "
@@ -136,7 +97,7 @@ Event.create!(
   max_attend: 500,
   category: ["music"],
   price_per: 50,
-  user_id: user,
+  user_id: User.all.sample.id,
   address: "1600 Amphitheatre Parkway, Mountain View, California, United States
 
   "
@@ -150,7 +111,7 @@ Event.create!(
   max_attend: 30,
   category: ["food"],
   price_per: 50,
-  user_id: user,
+  user_id: User.all.sample.id,
   address: "200 Queen's Gate, South Kensington, London, United Kingdom
   "
 )
@@ -163,7 +124,7 @@ Event.create!(
   max_attend: 50,
   category: ["movies"],
   price_per: 10,
-  user_id: user,
+  user_id: User.all.sample.id,
   address: "33 Yonge Street, Toronto, Ontario, Canada
   "
 )
@@ -176,7 +137,7 @@ Event.create!(
   max_attend: 25,
   category: ["outdoor"],
   price_per: 30,
-  user_id: user,
+  user_id: User.all.sample.id,
   address: "1 Times Square, New York City, New York, United States
   "
 )
