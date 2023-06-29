@@ -1,6 +1,5 @@
 class EventsController < ApplicationController
   def index
-    # pundit
     search_query = params[:search_query]
     sql_subquery = "title ILIKE :search_query OR address ILIKE :search_query"
     if search_query.present?
@@ -27,12 +26,10 @@ class EventsController < ApplicationController
     @event = Event.find_by_id(params[:id])
     @ratings = @event.ratings
     @attendances = @event.attendances
-    # pundit
   end
 
   def new
     @event = Event.new
-    # pundit
   end
 
   def create

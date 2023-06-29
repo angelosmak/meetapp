@@ -20,7 +20,7 @@
             <% if event.photo.key %>
               <%= cl_image_tag event.photo.key, class: 'postcard__img', style:"height:320px;"%>
             <% else %>
-              <%= image_tag "meetapp.png",class:"postcard__img", style:"height:320px;" %>
+              <%= image_tag "https://images.unsplash.com/photo-1591035897819-f4bdf739f446?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",class:"postcard__img", style:"height:320px;" %>
             <% end %></a>
 
             <div class="postcard__text t-dark">
