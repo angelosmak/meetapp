@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   def index
     search_query = params[:search_query]
-    sql_subquery = "title ILIKE :search_query OR address ILIKE :search_query"
+    sql_subquery = "title ILIKE :search_query OR address ILIKE :search_query OR :search_query = ANY(category)"
     if search_query.present?
       # Search the database for matching events
       if Event.where(sql_subquery, search_query: "%#{params[:search_query]}%")
@@ -20,6 +20,7 @@ class EventsController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: { event: })
       }
     end
+
   end
 
   def show

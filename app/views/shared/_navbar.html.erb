@@ -4,21 +4,21 @@
   <% if user_signed_in? %>
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <%= link_to "Profile", edit_profile_path(current_user.profile.id) %>
+      <%= link_to "Edit Profile", edit_profile_path(current_user.profile.id) %>
       <a href="#">Services</a>
       <a href="#">Clients</a>
-      <a href="#">Contact</a>
+      <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
     </div>
     <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
   <% end %>
     <%# Search Bar horizontal %>
-  <%= form_tag events_path, method: :get do %>
+  <%= form_tag events_path, method: :get,id:"search-form" do %>
     <div class="search-form-control d-flex pt-2">
-      <%= text_field_tag :search_query, params[:search_query], placeholder: "Discover Events", class: "secondary-text form-control" %>
-      <%= submit_tag 'Discover', class: "btn navbar-text" %>
+      <%= text_field_tag :search_query, params[:search_query], placeholder: "Discover Events", class: "secondary-text form-control",id:"search-input" %>
+      <%= submit_tag 'Discover', class: "btn navbar-text", id:"search-button"%>
     </div>
   <% end %>
-  
+
 
   <%= link_to new_event_path, class:"text-decoration-none" do%>
     <h3 id="plus-sign"><i class="fa-solid fa-plus"></i></h3>
@@ -31,31 +31,31 @@
       <div class="vl">
       </div>
       <div class="text-center hover">
-        <span for="sport"><i class="fa-solid fa-volleyball"></i></span>
+        <span data-category="sport" class="category" for="sport"><i class="fa-solid fa-volleyball"></i></span>
         <p>sport</p>
       </div>
       <div class="vl">
       </div>
       <div class="text-center hover">
-        <span for="music"><i class="fa-solid fa-music"></i></span>
+        <span data-category="music" class="category" for="music"><i class="fa-solid fa-music"></i></span>
         <p>music</p>
       </div>
       <div class="vl">
       </div>
       <div class="text-center hover">
-        <span for="food"><i class="fa-solid fa-burger"></i></span>
+        <span data-category="food" class="category" for="food"><i class="fa-solid fa-burger"></i></span>
         <p>food</p>
       </div>
       <div class="vl">
       </div>
       <div class="text-center hover">
-        <span for="movie"><i class="fa-solid fa-film"></i></span>
+        <span data-category="movie" class="category" for="movie"><i class="fa-solid fa-film"></i></span>
         <p>movies</p>
       </div>
       <div class="vl">
       </div>
       <div class="text-center hover">
-        <span for="outdoor"><i class="fa-solid fa-person-hiking"></i></span>
+        <span data-category="outdoor" class="category" for="outdoor"><i class="fa-solid fa-person-hiking"></i></span>
         <p>outdoor</p>
       </div>
       <div class="vl">

@@ -8,10 +8,12 @@
       <div style="width: 100%; height: 500px;"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
+        data-map-marker-value="<%= @marker.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
   </div>
+
   <section class="light">
       <div class="h1 text-center text-dark" id="pageHeaderTitle">Events and meetups near you</div>
         <% @events.each do |event| %>
@@ -32,7 +34,10 @@
                 <p><%= event.address %></p>
                 </div>
                 <div class="postcard__bar"></div>
-                  <div class="postcard__preview-txt"><%= event.description %></div>
+                  <div class="postcard__preview-txt">
+
+                      <p><%= event.description %></p>
+                  </div>
                     <ul class="postcard__tagbox">
                       <li class="tag__item"><i class="fas fa-tag mr-2"></i>Attend</li>
                     </ul>
@@ -43,10 +48,12 @@
           </article>
         <% end %>
       <% else %>
-        <h2>Hmmm...</h2>
-        <p>Seems like there are no events in your area 😔</p>
-        <div>
-          <%= link_to "Create an Event!", new_event_path, class:"btn btn-primary"%>
+      <div class="container text-center ">
+          <h2>Hmmm...</h2>
+          <p class="secondary-text">Seems like there are no events in your area 😔</p>
+          <div>
+            <%= link_to "Create an Event!", new_event_path, class:"btn btn-primary"%>
+          </div>
         </div>
       <% end %>
     </div>
