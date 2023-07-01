@@ -6,7 +6,7 @@
     <%= f.input :datetime %>
     <%= f.input :max_attend %>
     <%= f.input :price_per %>
-    <%= f.input :category, collection: ['sport', 'music', 'food', 'movies', 'outdoor'], as: :check_boxes %>
+    <%= f.collection_select :category, ['sport', 'music', 'food', 'movies', 'outdoor'], :to_s, :humanize, prompt: 'Select a category' %>
       <%= f.input :address,
         input_html: {data: {address_autocomplete_target: "address"},class: "d-none"},
         wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
