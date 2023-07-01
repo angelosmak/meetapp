@@ -27,6 +27,7 @@ searchForm.addEventListener('submit', (event) => {
   } else {
     // Handle the case when the search query is empty
     console.log('Please enter a search query');
+    window.location = '/events'; // Replace '/index' with the desired URL
   }
 });
 //newly added!
