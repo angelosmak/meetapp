@@ -1,9 +1,5 @@
 // Specific CSS for your home-page
-body {
-  font: 400 15px Lato, sans-serif;
-  line-height: 1.8;
-  color: #818181;
-}
+
 h2 {
   font-size: 24px;
   text-transform: uppercase;
@@ -17,85 +13,6 @@ h4 {
   color: #303030;
   font-weight: 400;
   margin-bottom: 30px;
-}
-.jumbotron {
-  background-image:url("https://images.unsplash.com/photo-1489710437720-ebb67ec84dd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80");
-  color: #fff;
-  height: 30vh ;
-  padding: 108px;
-  border-radius: 15px 50px;
-
-}
-.container-fluid {
-  padding: 60px 50px;
-}
-
-
-@keyframes slide {
-  0% {
-    opacity: 0;
-    transform: translateY(70%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0%);
-  }
-}
-@-webkit-keyframes slide {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(70%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0%);
-  }
-}
-
-@media screen and (max-width: 992px) {
-
-  .centered {
-    margin-right: 110px;
-    margin-left: 110px;
-  }
-  .vl {
-    height:50px;
-  }
-}
-@media screen and (max-width: 768px) {
-  .col-sm-4 {
-    text-align: center;
-    margin: 25px 0;
-  }
-  .btn-lg {
-    width: 100%;
-    margin-bottom: 35px;
-  }
-  .centered {
-    margin-right: 110px;
-    margin-left: 110px;
-  }
-
-}
-@media screen and (max-width: 480px) {
-  .centered {
-    margin-left: 50px;
-    margin-right: 50px;
-  }
-}
-
-#connect {
-  background-color: $yellow;;
-  margin-top: 20px;
-  border-radius: 15px 50px ;
-  padding: 20px;
-}
-
-#events{
-  background-color: $blue;
-  margin-top: 20px;
-  border-radius: 15px 50px ;
-  padding: 20px;
 }
 
 .image {
@@ -113,9 +30,6 @@ h4 {
   border-left: 1px solid black;
 }
 
-.bg-lg{
-  background-color: $yellow;
-}
 
 .hover:hover{
   opacity: 0.7;
