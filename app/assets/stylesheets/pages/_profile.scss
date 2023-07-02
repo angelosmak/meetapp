@@ -14,6 +14,22 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 .body:after {
+  .body:before {
+      height: 0px;
+      padding: 0px;
+      border: 110em solid #313440;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+      z-index: 2;
+      display: block;
+      -webkit-border-radius: 50%;
+      border-radius: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+      -webkit-animation: puff_portrait 0.5s 1.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards, borderRadius 0.2s 2.3s linear forwards;
+      animation: puff_portrait 0.5s 1.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards, borderRadius 0.2s 2.3s linear forwards;
+  }
   content: "";
   background-position: center center;
   background-repeat: no-repeat;
@@ -21,22 +37,6 @@ html {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-.body:before {
-    height: 0px;
-    padding: 0px;
-    border: 110em solid #313440;
-  position: absolute;
-  left: 50%;
-  top: 100%;
-    z-index: 2;
-    display: block;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-    -webkit-animation: puff_portrait 0.5s 1.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards, borderRadius 0.2s 2.3s linear forwards;
-    animation: puff_portrait 0.5s 1.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards, borderRadius 0.2s 2.3s linear forwards;
 }
 h1, h2 {
     font-weight: 400;
@@ -59,7 +59,7 @@ p {
   left: 50%;
   top: 50%;
     z-index: 2;
-  overflow: hidden;
+  overflow:scroll;
     opacity: 0;
     margin-top: 70px;
   -webkit-transform: translate(-50%, -50%);
@@ -364,10 +364,10 @@ p {
         top: 50%;
     }
   50% {
-     top: 40%;
+    top: 40%;
     }
     100% {
-       top: 100%;
+    top: 100%;
     }
 }
 @keyframes moveDown {
@@ -375,10 +375,10 @@ p {
         top: 50%;
     }
   50% {
-     top: 40%;
+    top: 40%;
     }
     100% {
-       top: 100%;
+    top: 100%;
     }
 }
 @-webkit-keyframes moveUp {
@@ -387,11 +387,11 @@ p {
         top: 100%;
     }
   50% {
-     top: 40%;
+    top: 40%;
     }
     100% {
-       top: 50%;
-       background: #E0E0E0;
+      top: 50%;
+      background: #E0E0E0;
     }
 }
 @keyframes moveUp {
@@ -400,11 +400,11 @@ p {
         top: 100%;
     }
   50% {
-     top: 40%;
+    top: 40%;
     }
     100% {
-       top: 50%;
-       background: #E0E0E0;
+      top: 50%;
+      background: #E0E0E0;
     }
 }
 @-webkit-keyframes materia_landscape {
@@ -415,8 +415,7 @@ p {
         -webkit-border-radius: 4px;
     }
     100% {
-        width: 440px;
-        height: 380px;
+
         background: #FFFFFF;
         -webkit-border-radius: 4px;
     }
@@ -457,8 +456,8 @@ p {
     border-radius: 4px;
   }
   100% {
-    width: 380px;
-    height: 800px;
+    width: 70vw;
+    height: 90vh;
     background: #FFFFFF;
     border-radius: 4px;
   }
