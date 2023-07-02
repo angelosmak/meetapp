@@ -1,10 +1,57 @@
-<div class="container text-center ">
-<% if @profile.photo.key %>
-  <%= cl_image_tag @profile.photo.key, class:"shadow my-5" ,height: 100, width: 100, crop: :fill %>
-  <% else %>
-    <%= image_tag "children.png", class:"avatar" %>
-  <% end %>
-  <h2>Username: <%= @profile.username %></h2>
-  <p>Email: <%= @user.email %></p>
-  <%= link_to "Delete Profile", user_registration_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+<% if false %>
+  <div class="container text-center ">
+    <% if @profile.photo.key %>
+        <%= cl_image_tag @profile.photo.key, class:"shadow my-5" ,height: 100, width: 100, crop: :fill %>
+      <% else %>
+        <%= image_tag "children.png", class:"avatar" %>
+      <% end %>
+    <h2>Username: <%= @profile.username %></h2>
+    <p>Email: <%= @user.email %></p>
+    <%= link_to "Delete Profile", user_registration_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  </div>
+<% end %>
+
+
+<%# Animated Profile %>
+    <!-- bit of a bio; who are you? -->
+<div class="body">
+  <aside class="profile-card">
+    <header>
+      <!-- here’s the avatar -->
+      <a href="/">
+        <%= cl_image_tag @profile.photo.key, class: 'avatar' %>
+      </a>
+      <!-- the username -->
+      <h1><%= @profile.first_name %> <%= @profile.last_name %></h1>
+      <!-- and role or location -->
+      <h2><%= @profile.address %></h2>
+    </header>
+      <!-- bit of a bio; who are you? -->
+    <div class="profile-bio">
+        <p><%= @profile.bio %></p>
+    </div>
+      <!-- some social links to show off -->
+    <ul class="profile-social-links">
+        <!-- twitter - el clásico  -->
+      <li>
+        <a href="#">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+      </li>
+      <!-- envato – use this one to link to your marketplace profile -->
+      <li>
+        <a href="#">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+      </li>
+      <!-- codepen - your codepen profile-->
+      <li>
+        <a href="#">
+          <i class="fa-brands fa-tiktok"></i>
+        </a>
+      </li>
+      <!-- add or remove social profiles as you see fit -->
+    </ul>
+  </aside>
+  <!-- that’s all folks! -->
 </div>

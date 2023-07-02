@@ -4,9 +4,9 @@
   <% if user_signed_in? %>
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <%= link_to "Edit Profile", edit_profile_path(current_user.profile.id) %>
-      <a href="#">Services</a>
-      <a href="#">Clients</a>
+      <%= link_to "Profile", profile_path(current_user.profile.id) %>
+      <a href="#">Option</a>
+      <a href="#">Option</a>
       <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
     </div>
     <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
@@ -24,44 +24,6 @@
     <h3 id="plus-sign"><i class="fa-solid fa-plus"></i></h3>
   <% end %>
 </div>
-<hr>
-<%# Categories %>
-<div class="centered">
-    <div class="categories d-flex justify-content-between">
-      <div class="vl">
-      </div>
-      <div class="text-center hover">
-        <span data-controller="category" data-category="sport" class="category" for="sport"><i class="fa-solid fa-volleyball"></i></span>
-        <p>sport</p>
-      </div>
-      <div class="vl">
-      </div>
-      <div class="text-center hover">
-        <span data-controller="category" data-category="music" class="category" for="music"><i class="fa-solid fa-music"></i></span>
-        <p>music</p>
-      </div>
-      <div class="vl">
-      </div>
-      <div class="text-center hover">
-        <span data-controller="category" data-category="food" class="category" for="food"><i class="fa-solid fa-burger"></i></span>
-        <p>food</p>
-      </div>
-      <div class="vl">
-      </div>
-      <div class="text-center hover">
-        <span data-controller="category" data-category="movie" class="category" for="movie"><i class="fa-solid fa-film"></i></span>
-        <p>movies</p>
-      </div>
-      <div class="vl">
-      </div>
-      <div class="text-center hover">
-        <span data-controller="category" data-category="outdoor" class="category" for="outdoor"><i class="fa-solid fa-person-hiking"></i></span>
-        <p>outdoor</p>
-      </div>
-      <div class="vl">
-      </div>
-    </div>
-  </div>
 <hr>
 
 
