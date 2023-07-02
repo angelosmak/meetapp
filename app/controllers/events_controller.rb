@@ -1,29 +1,29 @@
 class EventsController < ApplicationController
   def index
     search_query = params[:search_query]
-    sql_subquery = "category ILIKE :search_query  OR title ILIKE :search_query OR address ILIKE :search_query  "
     user_location = current_user.profile.address
 
     if search_query.present?
-      # Search the database for matching events
-      if Event.where(sql_subquery, search_query: "%#{params[:search_query]}%")
-        @results = Event.where(sql_subquery, search_query: "%#{params[:search_query]}%")
-        @events = @results.near(user_location, 300)
+      category_results = Event.where("category ILIKE :search_query", search_query: "%#{search_query}%")
+      address_results = Event.where("address ILIKE :search_query", search_query: "%#{search_query}%")
+
+      if address_results.any?
+        @events = address_results
       else
-        @events = Event.near(user_location,300)
+        @events = category_results.near(user_location, 300)
       end
     else
-      @events = Event.near(user_location,300)
+      @events = Event.near(user_location, 300)
     end
+
     # markers for the map
     @markers = @events.geocoded.map do |event|
       {
         lat: event.latitude,
         lng: event.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: { event: })
+        info_window_html: render_to_string(partial: "info_window", locals: { event: event })
       }
     end
-
   end
 
   def show
